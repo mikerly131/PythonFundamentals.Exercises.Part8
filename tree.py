@@ -36,4 +36,25 @@ def get_directory_contents(dir_path: str) -> list:
 # Function for printing the directory contents
 def print_directory_contents(dir_contents: list):
     for item in dir_contents:
-        print(item)
+        print(f'{item}')
+
+
+# Planning control flow for running as a program if needed
+if __name__ == '__main__':
+
+    path = '/Users/mike/projects/zcw_python/PythonFundamentals.Exercises.Part8/test_dump'
+
+    abs_path = get_absolute_path_to_directory(path)
+    print(f'Abs Path is: {abs_path}')
+
+    path_exists = check_path_exists(abs_path)
+    print(f'Path exists: {path_exists}')
+
+    path_is_dir = check_path_is_directory(abs_path)
+    print(f'Path is directory: {path_is_dir}')
+
+    if path_is_dir == True:
+        dir_content_list = get_directory_contents(abs_path)
+        print_directory_contents(dir_content_list)
+    else:
+        print('Path is not a directory')
